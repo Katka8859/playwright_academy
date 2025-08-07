@@ -20,4 +20,6 @@ npx playwright show-report
 spuštění testů - všech: npx playwright test first_tests.spec.ts
 
 pokud mám více prohlížečů a chci spustit jen v jednom prohlížeči test příkaz: npx playwright test first_tests.spec.ts --project=firefo
+
+faker knihovna: https://fakerjs.dev/api/
 */
