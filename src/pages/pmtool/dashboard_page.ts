@@ -13,6 +13,7 @@ export class DashboardPage {
   }
 
   async clickProfile() {
+    await this.page.waitForTimeout(2000);
     await this.profile.click();
   }
 
