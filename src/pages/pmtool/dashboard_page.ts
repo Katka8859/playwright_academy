@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { LoginPage } from "./login_page.ts";
 
 export class DashboardPage {
   readonly page: Page;
@@ -12,12 +13,20 @@ export class DashboardPage {
     this.logoutButton = page.locator("#logout");
   }
 
-  async clickProfile() {
-    await this.page.waitForTimeout(2000);
+  async clickProfile(): Promise<this> {
+    await this.page.waitForTimeout(3000);
     await this.profile.click();
+    return this;
   }
 
-  async clickLogout() {
+  async clickLogout(): Promise<LoginPage> {
     await this.logoutButton.click();
+    return new LoginPage(this.page);
+  }
+
+  async logout(): Promise<LoginPage> {
+    await this.clickProfile();
+    await this.clickLogout();
+    return new LoginPage(this.page);
   }
 }
