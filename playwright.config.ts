@@ -18,18 +18,27 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 0, // ! "podmínka, cloud, lokálně" - neboli když to selže, tak na cloudu se ten test opakuje dvakrát. Pokud nejsem v cloudu tak je to vyplé. Lektor nastavuje nulu i na cloudu. Je dobré třeba někde kd eje nestabilní prostředí, ale jinak je lepší to uplně vypnout protože to zpomaluje
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : undefined, // ! "podmínka, cloud, lokálně" - worker na cloudu nastaven jen jeden - neběží testy paralelně, ale jeden test za druhým. Lokálně neurčeno.
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [["html"], ["list"]], //report ve formě list byl na víc přidán
+  timeout: 60 * 1000, // ! timeot všech testů - jednoho testu
+  expect: {
+    timeout: 10 * 1000,
+  }, // ! expect je timeout pro assert
+  globalTimeout: 1 * 60 * 60 * 1000, // ! Zápis timeoutu 1 hodiny (3600000 ms) - timeout pro celý běh testů
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    actionTimeout: 10 * 1000, // ! nastavuje se do use a je to timeout akcí - klikání
+    navigationTimeout: 30 * 1000, // ! timeout navigace - otevírání stránek
+    screenshot: "only-on-failure", // ! nastavení screenchotů - "on" = nastaveno na vždy, ale jde nastavit jen při spadnutí
+    video: "off", // ! "on" je nastaveno vždy ale dá se nastavit jen při pádu. "off" - vypnuto
+    trace: "retain-on-failure",
   },
 
   /* Configure projects for major browsers */
@@ -50,10 +59,28 @@ export default defineConfig({
     },*/
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
+    /*
+    {
+      name: "Mobile Chrome",
+      use: {
+        ...devices["Pixel 5"],
+        viewport: {
+          height: 250,
+          width: 100,
+        },
+      },
+    },
+    {
+      name: "Small Phone - libovolný název",
+      use: {
+        ...devices["Pixel 5"],
+
+        viewport: {
+          height: 250,
+          width: 100,
+        },
+      },
+    },*/
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
