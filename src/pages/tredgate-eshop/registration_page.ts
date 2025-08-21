@@ -2,9 +2,6 @@ import { Locator, Page } from "@playwright/test";
 
 export class RegistrationPage {
   readonly page: Page;
-  readonly url = "https://tredgate.com/eshop/";
-  readonly myAccoutDropdownMenu: Locator;
-  readonly registerDropdownMenu: Locator;
   readonly firstNameInput: Locator;
   readonly lastNameInput: Locator;
   readonly emailInput: Locator;
@@ -15,10 +12,6 @@ export class RegistrationPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.myAccoutDropdownMenu = page.locator("#top-links a i.fa-user");
-    this.registerDropdownMenu = page.locator(
-      ".dropdown-menu a[href='https://tredgate.com/eshop/index.php?route=account/register']"
-    );
     this.firstNameInput = page.locator("#input-firstname");
     this.lastNameInput = page.locator("#input-lastname");
     this.emailInput = page.locator("#input-email");
@@ -28,30 +21,27 @@ export class RegistrationPage {
     this.continueButton = page.locator("input[type='submit']");
   }
 
-  async openRegistrationPage() {
-    await this.page.goto(this.url);
-    await this.myAccoutDropdownMenu.click();
-    await this.registerDropdownMenu.click();
-  }
-
   async fillPersonalDetails(
     firstName: string,
     lastName: string,
     email: string,
     telephoneNumber: string
-  ) {
+  ): Promise<this> {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.emailInput.fill(email);
     await this.telephoneInput.fill(telephoneNumber);
+    return this;
   }
 
-  async fillPassword(password: string) {
+  async fillPassword(password: string): Promise<this> {
     await this.passwordInput.fill(password);
     await this.passwordConfirmInput.fill(password);
+    return this;
   }
 
-  async clickContinue() {
+  async clickContinue(): Promise<this> {
     await this.continueButton.click();
+    return this;
   }
 }
