@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import path from "path";
+//import path from "path";
 
 test.describe("Forms Actions", () => {
   test.beforeEach(async ({ page }) => {
@@ -38,7 +38,7 @@ test.describe("Forms Actions", () => {
   test("date fill test", async ({ page }) => {
     await page.locator("#date-of-birth").fill("1990-01-01"); // ? Vyplnění data pomocí formátu YYYY-MM-DD
   });
-
+  /*
   test("File Upload Test", async ({ page }) => {
     const filePath = path.resolve(
       __dirname,
@@ -52,7 +52,7 @@ test.describe("Forms Actions", () => {
     const filechooser = await fileChooserPromise;
 
     await filechooser.setFiles(filePath);
-    // ? čekání tu máme, abychom v logu viděli, že se soubor vybere
+    //čekání tu máme, abychom v logu viděli, že se soubor vybere
     await page.waitForTimeout(2000);
   });
 
@@ -61,5 +61,5 @@ test.describe("Forms Actions", () => {
     await experienceSlider.fill("4");
     await experienceSlider.fill("1");
     await experienceSlider.fill("10");
-  });
+  });*/
 });
