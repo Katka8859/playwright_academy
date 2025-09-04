@@ -50,3 +50,5 @@ npx playwright show-trace 'C:\Users\User\Documents\Git Projects\playwright_acade
 npx playwright test --reporter=dot
 příkaz pro spuštění terminálového reportéru: formou listu
 npx playwright test --reporter=list*/
+
+// ! kontrola regexu - jestli ten co nám vyplyvla AI, tak jestli funguje: regex101.com
