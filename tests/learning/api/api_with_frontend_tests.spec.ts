@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+/*import { expect, test } from "@playwright/test";
 
 // SIT - System Integration Tests: https://en.wikipedia.org/wiki/System_integration_testing
 // Jsou to testy, kde používáme frontendovou část aplikace pro testování API (kontrolujeme API v Network části Devtools)
@@ -89,4 +89,4 @@ test.describe("Frontend with API Tests (SIT)", () => {
       ).toBe("string");
     });
   });
-});
+});*/

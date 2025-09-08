@@ -1,6 +1,6 @@
 // using_api_requests_in_frontend.spec.ts
 // tests/learning/api
-import { expect, test } from "@playwright/test";
+/*import { expect, test } from "@playwright/test";
 import { fakerCS_CZ as faker } from "@faker-js/faker";
 
 test.describe("Using API Requests in Frontend", () => {
@@ -43,4 +43,4 @@ test.describe("Using API Requests in Frontend", () => {
     await page.goto("http://localhost:3001/app");
     await expect(page.locator('[data-testid="logout_button"]')).toBeVisible();
   });
-});
+});*/

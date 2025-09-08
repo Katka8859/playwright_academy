@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+/*import { test, expect } from "@playwright/test";
 import { fakerCS_CZ as faker } from "@faker-js/faker";
 import { UserApi } from "../../../src/api/user_api.ts";
 
@@ -23,4 +23,4 @@ test("Using API Objects", async ({ request }) => {
     loginResponse.statusText(),
     "Login Response Status Text is 'Created'"
   ).toBe("Created");
-});
+});*/

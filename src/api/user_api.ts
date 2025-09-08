@@ -1,4 +1,4 @@
-import { APIRequestContext } from "@playwright/test";
+/*import { APIRequestContext } from "@playwright/test";
 
 export class UserApi {
   readonly request: APIRequestContext;
@@ -27,4 +27,4 @@ export class UserApi {
     });
     return response;
   }
-}
+}*/
