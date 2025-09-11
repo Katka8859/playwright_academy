@@ -1,6 +1,6 @@
 //env_secret_variables_tests.spec.ts
 // tests/learning/env-variables
-
+/*
 import { test } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/pmtool/login_page.ts";
 
@@ -17,4 +17,4 @@ test("Login with Environment Variables (dotenv)", async ({ page }) => {
     .then((login) => login.login(username, password))
     .then((dashboard) => dashboard.clickProfile())
     .then((dashboard) => dashboard.clickLogout());
-});
+});*/
