@@ -15,7 +15,7 @@ test.describe("GitHub Actions Tests", { tag: "@github-actions" }, () => {
     await loginPage.login(username, password);
   });
 
-  test("Login and Logout from Pmtool", async ({ page }) => {
+  test("Login and Logout from Pm", async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage
       .login(username, password)
