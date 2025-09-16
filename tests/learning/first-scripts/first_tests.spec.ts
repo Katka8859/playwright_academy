@@ -54,3 +54,6 @@ npx playwright test --reporter=list*/
 // ! kontrola regexu - jestli ten co nám vyplyvla AI, tak jestli funguje: regex101.com
 
 // ! http://day.js.org/ knihovna pro generování datumu
+
+// !
+//npx playwright show-report 'c:/Users/User/Downloads/playwright-report (6)'
