@@ -1,6 +1,7 @@
 // using_api_requests_in_frontend.spec.ts
 // tests/learning/api
-/*import { expect, test } from "@playwright/test";
+/*
+import { expect, test } from "@playwright/test";
 import { fakerCS_CZ as faker } from "@faker-js/faker";
 
 test.describe("Using API Requests in Frontend", () => {
