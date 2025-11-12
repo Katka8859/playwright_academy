@@ -1,6 +1,7 @@
 import { expect, Locator, Page, test } from "@playwright/test";
 import { DashboardPage } from "./dashboard_page";
 import { RestorePasswordPage } from "./lost_password_page";
+import { Credentials } from "../../types/types.ts";
 
 export class LoginPage {
   readonly page: Page;
@@ -64,5 +65,9 @@ export class LoginPage {
   async pageHeaderHasText(headerText: string): Promise<LoginPage> {
     await expect(this.pageHeader).toHaveText(headerText);
     return this;
+  }
+
+  async loginCreds(credentials: Credentials) {
+    return await this.login(credentials.username, credentials.password);
   }
 }

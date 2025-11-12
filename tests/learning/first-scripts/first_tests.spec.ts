@@ -57,3 +57,6 @@ npx playwright test --reporter=list*/
 
 // !
 //npx playwright show-report 'c:/Users/User/Downloads/playwright-report (6)'
+
+// ! vypne es-lint
+// eslint-disable-next-line playwright/no-conditional-in-test
